@@ -1,13 +1,12 @@
 package pages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import locators.CommonObjects;
 import utils.Actions;
-import utils.SeleniumDriver;
+import utils.DriverManager;
 
 public class Page {
 	
@@ -15,9 +14,9 @@ public class Page {
 	WebDriver driver;
 	
 	public Page() {
-		driver = SeleniumDriver.getDriver();
+		driver = DriverManager.getDriver();
 		this.commonLocators = new CommonObjects();
-		PageFactory.initElements(SeleniumDriver.getDriver(), commonLocators);
+		PageFactory.initElements(DriverManager.getDriver(), commonLocators);
 	}
 	
 	public void validatePageUrl(String expUrl) {

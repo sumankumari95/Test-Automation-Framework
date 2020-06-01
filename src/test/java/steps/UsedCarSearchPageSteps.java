@@ -1,8 +1,6 @@
 package steps;
 
 import io.cucumber.java.en.When;
-//import cucumber.api.java.en.When;
-import pages.NewAndUsedCarSearchPage;
 import pages.Page;
 import pages.UsedCarSearchPage;
 

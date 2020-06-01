@@ -4,7 +4,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 
 import locators.HomeObjects;
-import utils.SeleniumDriver;
+import utils.DriverManager;
 
 public class HomePage {
 
@@ -12,11 +12,11 @@ public class HomePage {
 	
 	public HomePage() {
 		this.homePageLocators = new HomeObjects();
-		PageFactory.initElements(SeleniumDriver.getDriver(), homePageLocators);
+		PageFactory.initElements(DriverManager.getDriver(), homePageLocators);
 	}
 	
 	public void moveToBuyAndSellMenu() {
-		Actions action = new Actions(SeleniumDriver.getDriver());
+		Actions action = new Actions(DriverManager.getDriver());
 		action.moveToElement(homePageLocators.carBuyAndSellLink).perform();;
 	}
 	

@@ -1,9 +1,6 @@
 package steps;
 
 import io.cucumber.java.en.Then;
-//import cucumber.api.java.en.Then;
-//import cucumber.api.java.en.When;
-import pages.AllNewAndUsedPage;
 import pages.AllUsedPage;
 
 public class AllUsedPageSteps {

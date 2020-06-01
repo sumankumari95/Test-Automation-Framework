@@ -1,13 +1,11 @@
 package pages;
 
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
-import locators.NewAndUsedCarSearchObjects;
 import locators.UsedCarSearchObjects;
 import utils.Actions;
-import utils.SeleniumDriver;
+import utils.DriverManager;
 
 public class UsedCarSearchPage {
 
@@ -16,7 +14,7 @@ public class UsedCarSearchPage {
 	
 	public UsedCarSearchPage() {
 		this.usedCarSearchLocators = new UsedCarSearchObjects();
-		PageFactory.initElements(SeleniumDriver.getDriver(), usedCarSearchLocators);
+		PageFactory.initElements(DriverManager.getDriver(), usedCarSearchLocators);
 	}
 	
 	public void validatePageUrl() {

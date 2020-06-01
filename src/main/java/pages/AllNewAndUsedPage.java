@@ -1,11 +1,9 @@
 package pages;
 
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 
 import locators.AllNewAndUsedObjects;
-import utils.Actions;
-import utils.SeleniumDriver;
+import utils.DriverManager;
 
 public class AllNewAndUsedPage {
 
@@ -14,7 +12,7 @@ public class AllNewAndUsedPage {
 	
 	public AllNewAndUsedPage() {
 		this.allNewAndUsedLocators = new AllNewAndUsedObjects();
-		PageFactory.initElements(SeleniumDriver.getDriver(), allNewAndUsedLocators);
+		PageFactory.initElements(DriverManager.getDriver(), allNewAndUsedLocators);
 	}
 	
 	public void validatePageUrl() {

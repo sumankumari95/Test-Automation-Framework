@@ -11,17 +11,17 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter;
-import com.google.common.io.Files;
 
 import io.cucumber.core.api.Scenario;
 import io.cucumber.java.After;
+import utils.DriverManager;
 import utils.SeleniumDriver;
 
 public class AfterSteps {
 
 	@After(order = 1)
 	public static void captureFailedScreenshot(Scenario scenario) throws IOException {
-		WebDriver driver=SeleniumDriver.getDriver();
+		WebDriver driver=DriverManager.getDriver();
 
 		if (scenario.isFailed())
 		{

@@ -5,7 +5,7 @@ import org.testng.Assert;
 
 import locators.NewAndUsedCarSearchObjects;
 import utils.Actions;
-import utils.SeleniumDriver;
+import utils.DriverManager;
 
 public class NewAndUsedCarSearchPage {
 
@@ -14,7 +14,7 @@ public class NewAndUsedCarSearchPage {
 	
 	public NewAndUsedCarSearchPage() {
 		this.newAndUsedCarSearchLocators = new NewAndUsedCarSearchObjects();
-		PageFactory.initElements(SeleniumDriver.getDriver(), newAndUsedCarSearchLocators);
+		PageFactory.initElements(DriverManager.getDriver(), newAndUsedCarSearchLocators);
 	}
 	
 	public void validatePageUrl() {
