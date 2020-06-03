@@ -23,8 +23,7 @@ public class SeleniumDriver {
 	private static SeleniumDriver seleniumDriver;
 	private static FileInputStream fis;
 	private static Properties config = new Properties();
-//	public static ThreadLocal<WebDriver> dr = new ThreadLocal<WebDriver>();
-	public boolean grid=false;
+	public boolean grid;
 	public static String browser;
 
 	public static int TIMEOUT = 30;
@@ -33,19 +32,25 @@ public class SeleniumDriver {
 	private SeleniumDriver() throws IOException {
 		fis = new FileInputStream(System.getProperty("user.dir")+"\\src\\test\\resources\\properties\\config.properties");
 		config.load(fis);
-		
-		if(System.getenv("browser") !=null && !System.getenv("browser").isEmpty()) {
+//---------------------------------------------------------------------------
+		if(System.getProperty("browser") != null) {
+			browser = System.getProperty("browser");
+		}else if(System.getenv("browser") !=null && !System.getenv("browser").isEmpty()) {
 			browser = System.getenv("browser");
 		} else {
 			browser = config.getProperty("browser");
 		}
 		
 		config.setProperty("browser", browser);
-
-		if(System.getenv("executionType")!=null && System.getenv("executionType").equals("Grid")) {
+//----------------------------------------------------------------------------
+		if(System.getProperty("isremote") != null) {
+			grid = Boolean.parseBoolean(System.getProperty("isremote"));
+		}else if(System.getenv("executionType")!=null && System.getenv("executionType").equals("Grid")) {
 			grid=true;
+		} else {
+			grid = Boolean.parseBoolean(config.getProperty("isRemote"));
 		}
-
+//---------------------------------------------------------------------------------
 		DriverFactory.setGridPath(config.getProperty("gridPath"));
 		DriverFactory.setRemote(grid);
 
@@ -80,6 +85,7 @@ public class SeleniumDriver {
 				driver = new InternetExplorerDriver();
 			}
 		}
+//-----------------------------------------------------------------------
 		DriverManager.setDriver(driver);
 		//		log.info("Driver Initialized !!!");
 
@@ -89,18 +95,6 @@ public class SeleniumDriver {
 		DriverManager.getDriver().manage().timeouts().implicitlyWait(TIMEOUT, TimeUnit.SECONDS);
 		DriverManager.getDriver().manage().timeouts().pageLoadTimeout(PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 	}
-
-	//	public static WebDriver getDriver() {
-	//		return driver;
-	//	}
-
-	//	public static WebDriver getDriver() {
-	//		return dr.get();
-	//	}
-	//	
-	//	public static void setDr(WebDriver driver) {
-	//		dr.set(driver);;
-	//	}
 
 	public static void openPage(String url) {
 		DriverManager.getDriver().get(url);

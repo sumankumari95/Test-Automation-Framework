@@ -10,6 +10,11 @@ public class Actions {
 		selectCar.selectByValue(value);
 	}
 	
+	public static void selectByVisibleText(WebElement locator, String text) {
+		Select selectCar = new Select(locator);
+		selectCar.selectByVisibleText(text);
+	}
+	
 	public static void click(WebElement locator) {
 		locator.click();
 	}

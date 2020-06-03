@@ -24,15 +24,15 @@ public class Page {
 	}
 
 	public void selectCarMake(String value) {
-		Actions.selectByValue(commonLocators.carMakeDropDown, value);
+		Actions.selectByVisibleText(commonLocators.carMakeDropDown, value);
 	}
 	
 	public void selectCarModel(String value) {
-		Actions.selectByValue(commonLocators.carModelDropDown, value);
+		Actions.selectByVisibleText(commonLocators.carModelDropDown, value);
 	}
 	
 	public void selectCarLocation(String value) {
-		Actions.selectByValue(commonLocators.carLocationDropDown, value);
+		Actions.selectByVisibleText(commonLocators.carLocationDropDown, value);
 	}
 	
 	public void selectCarPrice(String value) {

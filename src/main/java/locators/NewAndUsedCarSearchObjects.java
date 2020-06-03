@@ -6,6 +6,6 @@ import org.openqa.selenium.support.How;
 
 public class NewAndUsedCarSearchObjects {
 	
-	@FindBy(how = How.XPATH, using="//h1[contains(text(), \"New && Used\")]")
+	@FindBy(how = How.XPATH, using="//h1[contains(text(), \"New & Used\")]")
 	public WebElement header;
 }
